@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MandaLettera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+
+</head>
+<body>
+    <nav class="bg-black text-center text-white-50">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <button type="button" class="btn btn-outline-dark btn-sm"><a class="nav-link text-white" href="home.html">Home</a></button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-outline-dark btn-sm"><a class="nav-link text-white" href="discografia.html">Discografia</a> </button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-outline-dark btn-sm"><a class="nav-link text-white " href="letteradaifan.html">LetteraDaiFan</a></button>
+            </li>
+        </ul>
+    </nav>
+    <header class="p-3 mb-4 text-white cla" >
+        <div class="container">
+            <img src="img/unnamed.png" width="100" height="100" style="position: absolute; top: 50px; left: 0;">
+            <h1 class="text-center title">
+                NOTORIUS B.I.G
+            </h1>
+            <br>
+            <p class="text-center h6 subtext">
+                The Notorious B.I.G., con gli pseudonimi di Biggie, Biggie Smalls e Big Poppa è stato un rapper statunitense.
+                <br>Considerato uno dei più grandi rapper della storia
+            </p>
+        </div>
+        <br>
+        <br>
+    </header>
+
+
+<main class="container">
+    <div class="alert alert-info text-center" role="alert">
+       Manda un Messaggio a NOTORIUS B.I.G
+    </div>
+
+
+    <form action="/submitQuestion.jsp" class="row g-3">
+        <h5>Come ti chiami ?</h5>
+        <div class="col-md-6">
+            <label for="fname" class="form-label">First name:</label>
+            <input type="text" id="fname" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label for="lname" class="form-label">Last name:</label>
+            <input type="text" id="lname" class="form-control">
+        </div>
+
+        <div class="col-md-12">
+            <label for="email" class="form-label">Enter your email:</label>
+            <input type="email" id="email" name="email" class="form-control">
+        </div>
+
+        <h5>Mandagli qualcosa :</h5>
+        <div class="accordion" id="gift">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Carica il tuo regalo
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                     data-bs-parent="#additionalInfoAccordion">
+                    <div class="accordion-body">
+                        <label for="giftFile" class="form-label">Carica il tuo Regalo</label>
+                        <input type="file" id="giftFile" name="giftFile" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5>Mandami un messaggio <b>Uncle Bob</b></h5>
+        <div class="col-md-12">
+            <label for="messaggio" class="form-label">Your Question:</label>
+            <textarea name="messaggio" id="messaggio" class="form-control"></textarea>
+        </div>
+
+        <div class="col-md-12 text-center mt-3">
+            <input type="submit" value="Submit" class="btn btn-primary me-2">
+            <input type="reset" value="Clear" class="btn btn-secondary">
+        </div>
+    </form>
+</main>
+
+
+<footer class="bg-black text-center p-3 mt-4 text-white">
+    <p>2024 - Web Application - Unical - All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
