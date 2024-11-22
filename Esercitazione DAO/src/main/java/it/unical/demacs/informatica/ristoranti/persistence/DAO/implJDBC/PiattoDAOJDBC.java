@@ -5,17 +5,19 @@ import it.unical.demacs.informatica.ristoranti.model.Ristorante;
 import it.unical.demacs.informatica.ristoranti.persistence.DAO.PiattoDAO;
 import it.unical.demacs.informatica.ristoranti.persistence.DAO.RistoranteDAO;
 import it.unical.demacs.informatica.ristoranti.persistence.DBManager;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class PiattoDAOJDBC implements PiattoDAO {
 
     private final Connection connection;
 
-    public PiattoDAOJDBC(Connection conn) {
-        this.connection = conn;
+    public PiattoDAOJDBC() {
+        this.connection = DBManager.getInstance().getConnection();
     }
 
     @Override
@@ -90,13 +92,13 @@ public class PiattoDAOJDBC implements PiattoDAO {
     }
 
     @Override
-    public void delete(Piatto piatto) {
+    public void delete(String nome) {
         String query = "DELETE FROM piatto WHERE nome = ?";
         try {
             PreparedStatement st = connection.prepareStatement(query);
-            st.setString(1, piatto.getNome());
+            st.setString(1, nome);
             st.executeUpdate();
-            resetRelationInJoinTable(piatto.getNome());
+            resetRelationInJoinTable(nome);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -122,7 +124,7 @@ public class PiattoDAOJDBC implements PiattoDAO {
     }
 
     public static void main(String[] args) {
-        PiattoDAO piattoDAO = new PiattoDAOJDBC(DBManager.getInstance().getConnection());
+        PiattoDAO piattoDAO = new PiattoDAOJDBC();
         List<Piatto> piatti = piattoDAO.findAll();
         for (Piatto piatto : piatti) {
             System.out.println(piatto);
